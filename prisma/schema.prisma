@@ -35,10 +35,11 @@ model Transaction {
   created_at DateTime @default(now())
   accountId  String
 
-  debited         String
-  credited        String
-  creditedAccount Account @relation("creditedAccount", fields: [credited], references: [id])
-  debitedAccount  Account @relation("debitedAccount", fields: [debited], references: [id])
+  debitedAccountId  String @map("debited_account_id")
+  creditedAccountId String @map("credited_account_id")
+
+  creditedAccount Account @relation("creditedAccount", fields: [creditedAccountId], references: [id])
+  debitedAccount  Account @relation("debitedAccount", fields: [debitedAccountId], references: [id])
 
   @@map("transactions")
 }
