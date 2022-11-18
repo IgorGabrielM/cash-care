@@ -1,5 +1,4 @@
 import {NextFunction, Request, Response} from "express";
-import { CreateUserUseCase } from "../useCases/createUserUseCase";
 import {createUserFactory} from "../factories/create-user.factory";
 
 export class CreateUserController {
